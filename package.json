@@ -1,0 +1,20 @@
+{
+	"naame": "skewa",
+	"version": "1.0.0",
+	"description": "A schema helper for node.js",
+	"license": "MIT",
+	"author": "louiszn",
+	"type": "module",
+	"main": "index.js",
+	"scripts": {
+		"format": "npx @biomejs/biome format --write ./",
+		"lint": "npx @biomejs/biome lint --write",
+		"check": "npx @biomejs/biome check --write",
+		"test": "npx vitest"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.4",
+		"typescript": "^5.7.3",
+		"vitest": "^3.0.3"
+	}
+}
