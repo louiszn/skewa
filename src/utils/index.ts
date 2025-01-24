@@ -75,11 +75,14 @@ export function validateField(field: FieldData, baseName: string, data: any) {
 export function validateArrayField(field: ArrayFieldData, baseName: string, data: any) {
 	if (field.tuple) {
 		for (const [index, entry] of field.type.entries()) {
-			if (!data?.[index] || !Array.isArray(data[index])) {
-				throw new Error(`Field '${baseName}' must be an array.`);
-			}
-
 			validateField(entry, `${baseName}[${index}]`, data[index]);
+		}
+
+		if (data.length > field.type.length) {
+			throw new ValidationError(
+				baseName,
+				`required ${field.type.length} entries, received ${data.length}.`,
+			);
 		}
 
 		return;
